@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="main" focusTraversable="true" prefHeight="308.0" prefWidth="506.0" stylesheets="@mainCascadeStyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mysqlconnection.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" alignment="CENTER" layoutY="40.0" minHeight="16" minWidth="69" prefHeight="37.0" prefWidth="524.0" styleClass="label-bright" />
+      <Button id="submit" fx:id="submit" layoutX="129.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Save" />
+      <Label alignment="CENTER_RIGHT" layoutY="93.0" prefHeight="44.0" prefWidth="127.0" text="Database name" />
+      <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="130.0" prefHeight="37.0" prefWidth="120.0" text="Username" />
+      <Label alignment="CENTER_RIGHT" layoutY="165.0" prefHeight="44.0" prefWidth="120.0" text="Password" />
+      <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="205.0" prefHeight="37.0" prefWidth="120.0" text="Server" />
+      <PasswordField fx:id="txtdbPassword" alignment="CENTER" layoutX="129.0" layoutY="167.0" prefHeight="44.0" prefWidth="380.0" />
+      <TextField fx:id="txtdbName" alignment="CENTER" layoutX="129.0" layoutY="94.0" prefHeight="37.0" prefWidth="380.0" />
+      <TextField fx:id="txtdbUserName" alignment="CENTER" layoutX="129.0" layoutY="130.0" prefHeight="37.0" prefWidth="380.0" />
+      <TextField fx:id="txtdbServer" alignment="CENTER" layoutX="129.0" layoutY="211.0" prefHeight="37.0" prefWidth="380.0" />
+      <Button fx:id="bntConString" layoutX="187.0" layoutY="248.0" mnemonicParsing="false" onAction="#getString" text="Get Connection String" />
+      <Button fx:id="bntTest" layoutX="370.0" layoutY="248.0" mnemonicParsing="false" onAction="#testConnectionAction" text="Test Connection" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="6.0" prefHeight="21.0" prefWidth="524.0" text="MySQL CONNECTION GRAPHICAL USER INTERFACE" textAlignment="RIGHT" textFill="#cfcee4" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+    </children>
+   <effect>
+      <DisplacementMap>
+         <mapData>
+            <FloatMap />
+         </mapData>
+      </DisplacementMap>
+   </effect>
+   <styleClass>
+      <String fx:value="background" />
+      <String fx:value="label-bright" />
+      <String fx:value="password-field" />
+      <String fx:value="textfield" />
+   </styleClass>
+</AnchorPane>

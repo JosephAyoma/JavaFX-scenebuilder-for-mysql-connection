@@ -1,0 +1,69 @@
+.background {
+    -fx-background-color: #ffffff;
+}
+
+.label{
+    -fx-margin-bottom: 0;
+    -fx-font-size: inherit;
+    -fx-line-height: 1.5;
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: blueviolet;
+    -fx-opacity: 1;
+}
+ .textfield {
+    -fx-font-size: 12pt;
+    -fx-padding:inherit;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.password-field {
+    -fx-font-size: 12pt;
+    -fx-padding:inherit;
+    -fx-font-family: "Segoe UI Semibold";
+}
+ .button {
+     
+    -fx-outline: 1pt;
+    -fx-outline: 5pt;
+    -fx-margin: 0;
+    -fx-font-family: inherit;
+    -fx-font-size: inherit;
+    -fx-line-height: inherit;
+}
+
+.button:hover {
+    /*-fx-background-color: #3a3a3a;*/
+    -fx-background-color: #9fcdff;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-outline: 1px;
+    -fx-outline: 5px;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
