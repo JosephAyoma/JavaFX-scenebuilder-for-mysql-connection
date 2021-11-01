@@ -3,18 +3,18 @@
 }
 
 .label{
-    -fx-margin-bottom: 0;
+    -fx-margin-bottom: 2pt;
     -fx-font-size: inherit;
-    -fx-line-height: 1.5;
-    -fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
+    -fx-line-height: 1.5pt;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Black";
     -fx-text-fill: black;
     -fx-opacity: 1;
 }
 .label-bright {
-    -fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: blueviolet;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Black";
+    -fx-text-fill: #9999ff;
     -fx-opacity: 1;
 }
  .textfield {
@@ -30,22 +30,22 @@
 }
  .button {
      
-    -fx-outline: 1pt;
-    -fx-outline: 5pt;
-    -fx-margin: 0;
+    -fx-outline: 1.5pt;
+    -fx-outline: 6pt;
+    -fx-margin: 1pt;
     -fx-font-family: inherit;
     -fx-font-size: inherit;
     -fx-line-height: inherit;
 }
 
 .button:hover {
-    /*-fx-background-color: #3a3a3a;*/
+
     -fx-background-color: #9fcdff;
 }
 
 .button:pressed, .button:default:hover:pressed {
   -fx-background-color: white;
-  -fx-text-fill: #1d1d1d;
+  -fx-text-fill: #9fcdff;
 }
 
 .button:focused {
@@ -54,16 +54,15 @@
 }
 
 .button:disabled, .button:default:disabled {
-    -fx-opacity: 0.4;
-    -fx-background-color: #1d1d1d;
-    -fx-text-fill: white;
+    -fx-opacity: 0.5;
+    -fx-background-color: #9fcdff;
+    -fx-text-fill: #ffffff;
 }
 
 .button:default {
     -fx-background-color: -fx-focus-color;
     -fx-text-fill: #ffffff;
 }
-
 .button:default:hover {
-    -fx-background-color: derive(-fx-focus-color,30%);
+    -fx-background-color: derive(-fx-focus-color,32%);
 }

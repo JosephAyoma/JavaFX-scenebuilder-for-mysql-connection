@@ -62,9 +62,9 @@ public class FXMLDocumentController implements Initializable {
     Statement state = null;
     Connection conect = null;
     
-    DocumentBuilderFactory dbFactory;
-    DocumentBuilder dBuilder;
-    Document doc;
+    DocumentBuilderFactory dbuilder_Factory;
+    DocumentBuilder document_Builder;
+    Document document;
 
     File file = new File(".\\lib\\dbConnectionFile.xml");
     @FXML
@@ -103,11 +103,11 @@ public class FXMLDocumentController implements Initializable {
     public void readDbConnectionFile() {
         try {
 
-            dbFactory = DocumentBuilderFactory.newInstance();
-            dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(file);
-            doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("dbConnectionFile");
+            dbuilder_Factory = DocumentBuilderFactory.newInstance();
+            document_Builder = dbuilder_Factory.newDocumentBuilder();
+            document = document_Builder.parse(file);
+            document.getDocumentElement().normalize();
+            NodeList nList = document.getElementsByTagName("dbConnectionFile");
             
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
@@ -148,16 +148,18 @@ public class FXMLDocumentController implements Initializable {
         root.appendChild(dbServer);
         Text text4 = doc.createTextNode(serverName);
         dbServer.appendChild(text4);
-
-        TransformerFactory factory = TransformerFactory.newInstance();
-        Transformer transformer = factory.newTransformer();
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-        StringWriter sw = new StringWriter();
-        StreamResult result = new StreamResult(sw);
-        DOMSource source = new DOMSource(doc);
-        transformer.transform(source, result);
-        String xmlString = sw.toString();
+         
+        //Creating transformer object to perform our document file transformation
+        TransformerFactory Tfactory = TransformerFactory.newInstance();
+        Transformer Tformer = Tfactory.newTransformer();
+        Tformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        //Contructing string outputs to the file
+        StringWriter StringW = new StringWriter();
+        StreamResult result = new StreamResult(StringW);
+        
+        DOMSource Dsource = new DOMSource(doc);
+        Tformer.transform(Dsource, result);
+        String xmlString = StringW.toString();
 
         try (
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)))) {
@@ -169,22 +171,22 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         try {
-            dbFactory = DocumentBuilderFactory.newInstance();
-            dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.newDocument();
+            dbuilder_Factory = DocumentBuilderFactory.newInstance();
+            document_Builder = dbuilder_Factory.newDocumentBuilder();
+            document = document_Builder.newDocument();
             if (file.exists()) {
                 //Checks if the DB connection XML file already exists, if it does it deletes the file and allow of creating a new file
                 file.delete();
 
                 System.out.println("File deleted....");
 
-                createDbConnectionXmlFile(doc, txtdbUserName.getText().trim(), txtdbName.getText().trim(),
+                createDbConnectionXmlFile(document, txtdbUserName.getText().trim(), txtdbName.getText().trim(),
                         txtdbPassword.getText().trim(), txtdbServer.getText().trim());
                 label.setText("MySQL DB Connection File Created Successfully");
 
             } else {
 
-                createDbConnectionXmlFile(doc, txtdbUserName.getText().trim(), txtdbName.getText().trim(), txtdbPassword.getText().trim(), txtdbServer.getText().trim());
+                createDbConnectionXmlFile(document, txtdbUserName.getText().trim(), txtdbName.getText().trim(), txtdbPassword.getText().trim(), txtdbServer.getText().trim());
                 label.setText("MySQL DB Connection File Created Successfully");
             }
 
